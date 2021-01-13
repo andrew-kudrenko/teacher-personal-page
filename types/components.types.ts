@@ -26,3 +26,13 @@ export type GalleryGridTileProps = {
   img: string
   cols: number
 }
+
+export type MaterialListItemProps = {
+  title: string
+  href: string
+}
+
+export type MaterialsListProps = {
+  title: string
+  data: Array<MaterialListItemProps>
+}
