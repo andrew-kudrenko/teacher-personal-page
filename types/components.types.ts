@@ -3,7 +3,7 @@ export type RootLayoutProps = {
 }
 
 export type DrawerProps = {
-  opened: Boolean
+  opened: boolean
   onToggle: () => void
 }
 

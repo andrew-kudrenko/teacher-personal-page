@@ -6,6 +6,7 @@ import {
   Drawer as MuiDrawer,
   IconButton,
   List,
+  useMediaQuery,
 } from '@material-ui/core'
 import {
   BookOutlined,
@@ -22,6 +23,7 @@ import {
   DrawerListOptionProps,
   DrawerProps,
 } from '../../../types/components.types'
+import { useCustomTheme } from '../../../styles/jss/theme'
 
 const drawerWidth = 240
 
@@ -77,18 +79,23 @@ const drawerListOptions: Array<DrawerListOptionProps> = [
 
 export const Drawer: React.FC<DrawerProps> = ({ opened, onToggle }) => {
   const classes = useStyles()
+  const { breakpoints } = useCustomTheme()
+  const lessThanMd = useMediaQuery(`(max-width: ${breakpoints.values.md}px)`)
+
+  const open = !lessThanMd || opened
 
   return (
     <MuiDrawer
-      variant="permanent"
+      variant={lessThanMd ? 'temporary' : 'persistent'}
+      open={open}
       className={clsx(classes.drawer, {
-        [classes.drawerOpen]: opened,
-        [classes.drawerClose]: !opened,
+        [classes.drawerOpen]: open,
+        [classes.drawerClose]: !open,
       })}
       classes={{
         paper: clsx({
-          [classes.drawerOpen]: opened,
-          [classes.drawerClose]: !opened,
+          [classes.drawerOpen]: open,
+          [classes.drawerClose]: !open,
         }),
       }}
     >
@@ -100,7 +107,10 @@ export const Drawer: React.FC<DrawerProps> = ({ opened, onToggle }) => {
       <Divider />
       <List>
         {drawerListOptions.map(o => (
-          <DrawerListOption key={o.label} {...o} />
+          <React.Fragment>
+            <DrawerListOption key={o.label} {...o} />
+            <Divider />
+          </React.Fragment>
         ))}
       </List>
     </MuiDrawer>

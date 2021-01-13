@@ -2,6 +2,7 @@ import { Box, Typography } from '@material-ui/core'
 import { RootLayout } from '../components/layouts/RootLayout'
 import { MaterialsList } from '../components/materials-page/MaterialsList'
 import { MaterialsListProps } from '../types/components.types'
+import { Portrait } from '../components/home-page/Portrait'
 
 const materials: Array<MaterialsListProps> = [
   {
@@ -11,10 +12,6 @@ const materials: Array<MaterialsListProps> = [
         title:
           'Презентация к уроку математики "Контрольная работа за I полугодие"',
         href: 'https://clck.ru/LuBdJ',
-      },
-      {
-        title: '',
-        href: '',
       },
     ],
   },
@@ -47,9 +44,10 @@ const materials: Array<MaterialsListProps> = [
 export default function Materials() {
   return (
     <RootLayout title="Методические материалы">
-      <Typography variant="h3" component="h2" align="center" gutterBottom>
+      <Typography variant="h3" component="h2" align="center">
         {'Методическая копилка'}
       </Typography>
+      <Portrait src="/materials-page/alina's_photo_2.jpg" />
       <Box>
         {materials.map(m => (
           <MaterialsList {...m} key={m.title} />

@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <RootLayout title="Обо мне">
       <GreetingArticle />
-      <Portrait src="/author_photo.jpg" />
+      <Portrait src="/home-page/alina's_photo_0.jpg" />
       <Credo />
-      <Portrait src="/author_photo-2.jpg" />
+      <Portrait src="/home-page/alina's_photo_1.jpg" />
       <ProfessionalProperties />
     </RootLayout>
   )

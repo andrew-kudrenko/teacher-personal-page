@@ -8,6 +8,7 @@ import {
   IconButton,
   Container,
   Box,
+  Hidden,
 } from '@material-ui/core'
 import { MenuOutlined as MenuIcon } from '@material-ui/icons'
 import { NavbarLogo } from './NavbarLogo'
@@ -63,19 +64,21 @@ export const Navbar: React.FC<DrawerProps> = ({ opened, onToggle }) => {
       >
         <Container>
           <Toolbar className={classes.toolbar}>
-            <Box className={classes.row}>
-              {!opened && (
-                <IconButton
-                  edge="start"
-                  className={classes.menuButton}
-                  color="inherit"
-                  onClick={onToggle}
-                >
-                  <MenuIcon />
-                </IconButton>
-              )}
-              <NavbarLogo />
-            </Box>
+            <Hidden mdUp>
+              <Box className={classes.row}>
+                {!opened && (
+                  <IconButton
+                    edge="start"
+                    className={classes.menuButton}
+                    color="inherit"
+                    onClick={onToggle}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                )}
+              </Box>
+            </Hidden>
+            <NavbarLogo />
             <Box>
               <ThemeToggler />
             </Box>

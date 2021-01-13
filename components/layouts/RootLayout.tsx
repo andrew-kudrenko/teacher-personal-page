@@ -15,7 +15,7 @@ import { useState } from 'react'
 const drawerWidth = 240
 const appBarHeight = 65
 
-const useStyles = makeStyles(({ spacing }: Theme) =>
+const useStyles = makeStyles(({ spacing, breakpoints }: Theme) =>
   createStyles({
     container: {
       display: 'flex',
@@ -28,12 +28,16 @@ const useStyles = makeStyles(({ spacing }: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      paddingLeft: 72,
       transitionProperty: 'padding-left',
       transitionDuration: '.2s',
+      [breakpoints.up('md')]: {
+        paddingLeft: 72,
+      },
     },
     shiftedByDrawer: {
-      paddingLeft: drawerWidth,
+      [breakpoints.up('md')]: {
+        paddingLeft: drawerWidth,
+      },
     },
   })
 )

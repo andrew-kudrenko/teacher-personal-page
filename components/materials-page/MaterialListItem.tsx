@@ -1,13 +1,11 @@
 import Link from 'next/link'
 import {
-  Avatar,
   ListItem,
   ListItemAvatar,
   ListItemText,
   Theme,
   Typography,
 } from '@material-ui/core'
-import { DockOutlined } from '@material-ui/icons'
 import { MaterialListItemProps } from '../../types/components.types'
 import { makeStyles, createStyles } from '@material-ui/styles'
 
@@ -15,6 +13,9 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
+    },
+    marker: {
+      maxHeight: 30,
     },
   })
 )
@@ -26,9 +27,10 @@ export const MaterialsListItem: React.FC<MaterialListItemProps> = props => {
   return (
     <ListItem className={classes.root}>
       <ListItemAvatar>
-        <Avatar>
-          <DockOutlined />
-        </Avatar>
+        <img
+          className={classes.marker}
+          src="https://image.flaticon.com/icons/png/128/3444/3444821.png"
+        />
       </ListItemAvatar>
       <Typography component={Link} href={href}>
         <ListItemText primary={title} color="default" />
