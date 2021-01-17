@@ -107,8 +107,8 @@ export const Drawer: React.FC<DrawerProps> = ({ opened, onToggle }) => {
       <Divider />
       <List>
         {drawerListOptions.map(o => (
-          <React.Fragment>
-            <DrawerListOption key={o.label} {...o} />
+          <React.Fragment key={o.label}>
+            <DrawerListOption {...o} />
             <Divider />
           </React.Fragment>
         ))}
