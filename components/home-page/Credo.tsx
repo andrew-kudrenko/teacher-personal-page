@@ -19,7 +19,10 @@ const useStyles = makeStyles(({ spacing, typography }: Theme) =>
     },
     quote: {
       marginRight: spacing(2),
-      minWidth: '100px',
+      minWidth: '50px',
+    },
+    quoteMarker: {
+      maxHeight: '50px',
     },
     text: {
       fontStyle: 'italic',
@@ -40,7 +43,7 @@ export const Credo: React.FC = () => {
       <Card className={classes.credo}>
         <CardContent className={classes.content}>
           <Box className={classes.quote}>
-            <img src="/home-page/idea.png" />
+            <img className={classes.quoteMarker} src="/home-page/idea.png" />
           </Box>
           <Box>
             <Typography

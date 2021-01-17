@@ -70,7 +70,10 @@ export const GalleryGrid: React.FC = () => {
           spacing={8}
         >
           {tileData.map((t, idx) => (
-            <GridListTile key={`${t.img}--${idx}`} cols={t.cols}>
+            <GridListTile
+              key={`${t.img}--${idx}`}
+              cols={greatThanMd ? t.cols : 3}
+            >
               <img src={t.img} />
             </GridListTile>
           ))}
