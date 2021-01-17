@@ -19,7 +19,7 @@ export const useCustomTheme = (): MaterialTheme => {
 
   return createMuiTheme({
     palette: {
-      primary: { main: colors.amber[100] },
+      primary: { main: colors.lightGreen[100] },
       secondary: { main: colors.orange[200] },
       type: variant === Theme.Light ? 'light' : 'dark',
     },

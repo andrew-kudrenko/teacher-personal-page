@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <RootLayout title="Обо мне">
       <GreetingArticle />
-      <Portrait src="/home-page/alina's_photo_0.jpg" />
       <Credo />
       <Portrait src="/home-page/alina's_photo_1.jpg" />
       <ProfessionalProperties />

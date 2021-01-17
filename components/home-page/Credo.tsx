@@ -40,7 +40,7 @@ export const Credo: React.FC = () => {
       <Card className={classes.credo}>
         <CardContent className={classes.content}>
           <Box className={classes.quote}>
-            <img src="https://www.flaticon.com/svg/vstatic/svg/1005/1005084.svg?token=exp=1610445338~hmac=636cec303bca9e9582a3dc6b669064fe" />
+            <img src="/home-page/idea.png" />
           </Box>
           <Box>
             <Typography
