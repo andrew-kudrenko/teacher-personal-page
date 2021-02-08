@@ -29,7 +29,7 @@ export type GalleryGridTileProps = {
 
 export type MaterialListItemProps = {
   title: string
-  href: string
+  link: string
 }
 
 export type MaterialsListProps = {

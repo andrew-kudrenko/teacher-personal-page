@@ -7,6 +7,9 @@ import {
   Box,
 } from '@material-ui/core'
 import { GalleryGridTileProps } from '../../types/components.types'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { apiUrl } from '../../helpers/api.helpers'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,22 +26,8 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-const tileData: Array<GalleryGridTileProps> = [
-  { img: '/gallery-page/gallery_photo_3.jpg', cols: 1 },
-  { img: '/gallery-page/gallery_photo_5.jpg', cols: 2 },
-  { img: '/gallery-page/gallery_photo_1.jpg', cols: 2 },
-  { img: '/gallery-page/gallery_photo_2.jpg', cols: 1 },
-  { img: '/gallery-page/gallery_photo_6.jpg', cols: 1 },
-  { img: '/gallery-page/gallery_photo_0.jpg', cols: 1 },
-  { img: '/gallery-page/gallery_photo_7.jpg', cols: 1 },
-  { img: '/gallery-page/gallery_photo_4.jpg', cols: 1 },
-  { img: '/gallery-page/gallery_photo_8.jpg', cols: 2 },
-  { img: '/gallery-page/gallery_photo_9.jpg', cols: 1 },
-  { img: '/gallery-page/gallery_photo_10.jpg', cols: 2 },
-  { img: '/gallery-page/gallery_photo_11.jpg', cols: 3 },
-]
-
 export const GalleryGrid: React.FC = () => {
+  const [tiles, setTiles] = useState<Array<GalleryGridTileProps>>([])
   const classes = useStyles()
 
   const greatThanSm = useMediaQuery(`(min-width: ${350}px)`)
@@ -60,6 +49,18 @@ export const GalleryGrid: React.FC = () => {
     factor = 3
   }
 
+  useEffect(() => {
+    ;(async () => {
+      const response = await axios.get(`${apiUrl}/photos`)
+
+      if (response.data) {
+        setTiles(
+          response.data.map(n => ({ img: `${apiUrl}/${n.file}`, cols: n.cols }))
+        )
+      }
+    })()
+  }, [])
+
   return (
     <Paper className={classes.root} elevation={2}>
       <Box padding={1}>
@@ -69,7 +70,7 @@ export const GalleryGrid: React.FC = () => {
           cols={3}
           spacing={8}
         >
-          {tileData.map((t, idx) => (
+          {tiles.map((t, idx) => (
             <GridListTile
               key={`${t.img}--${idx}`}
               cols={greatThanMd ? t.cols : 3}

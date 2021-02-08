@@ -31,12 +31,19 @@ export const MaterialsList: React.FC<MaterialsListProps> = props => {
         {title}
       </Typography>
       <List className={classes.list} component={Paper} elevation={2}>
-        {data.map((m, idx, arr) => (
-          <React.Fragment key={m.title}>
-            <MaterialsListItem {...m} />
-            {idx !== arr.length - 1 && <Divider />}
-          </React.Fragment>
-        ))}
+        {data.length > 0 ? (
+          data.map((m, idx, arr) => (
+            <React.Fragment key={m.title}>
+              <MaterialsListItem {...m} />
+              {idx !== arr.length - 1 && <Divider />}
+            </React.Fragment>
+          ))
+        ) : (
+          <MaterialsListItem
+            title="Здесь пока ничего нет..."
+            link="/materials"
+          />
+        )}
       </List>
     </>
   )

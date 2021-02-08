@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 export const MaterialsListItem: React.FC<MaterialListItemProps> = props => {
-  const { title, href } = props
+  const { title, link } = props
   const classes = useStyles()
 
   return (
@@ -32,7 +32,7 @@ export const MaterialsListItem: React.FC<MaterialListItemProps> = props => {
           src="https://image.flaticon.com/icons/png/128/3444/3444821.png"
         />
       </ListItemAvatar>
-      <Typography component={Link} href={href}>
+      <Typography component={Link} href={link}>
         <ListItemText primary={title} color="default" />
       </Typography>
     </ListItem>
