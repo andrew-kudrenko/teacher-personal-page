@@ -7,3 +7,9 @@ export type Material = {
   link: string
   category: string
 }
+
+export type News = {
+  title: string
+  content: string
+  image: string
+}
