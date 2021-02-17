@@ -70,11 +70,11 @@ const drawerListOptions: Array<DrawerListOptionProps> = [
     to: '/materials',
     icon: <BookOutlined />,
   },
-  // { label: 'Портфолио', to: '/portfolio', icon: <BusinessCenterOutlined /> },
+  { label: 'Портфолио', to: '/portfolio', icon: <BusinessCenterOutlined /> },
   { label: 'Новости', to: '/news', icon: <HomeOutlined /> },
   { label: 'Фотогалерея', to: '/gallery', icon: <CameraEnhanceOutlined /> },
-  // { label: 'Достижения', to: '/achievements', icon: <StarOutline /> },
-  // { label: 'Контакты', to: '/contacts', icon: <CallOutlined /> },
+  { label: 'Родителям', to: '/parents', icon: <StarOutline /> },
+  { label: 'Контакты', to: '/contacts', icon: <CallOutlined /> },
 ]
 
 export const Drawer: React.FC<DrawerProps> = ({ opened, onToggle }) => {
